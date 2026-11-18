@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Busca una ciudad y consulta sus condiciones actuales y el pronóstico de cinco días con Open-Meteo.">
+  <title>Clima a la vista | FIME</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="saltar" href="#buscador">Saltar al buscador</a>
+  <header class="cabecera contenedor">
+    <a class="marca" href="./" aria-label="Clima a la vista, inicio"><span class="logo" aria-hidden="true">☀</span> Clima a la vista</a>
+    <span class="insignia">LABORATORIO WEB · FIME</span>
+  </header>
+  <main class="contenedor">
+    <section class="introduccion" aria-labelledby="titulo">
+      <p class="etiqueta">TU PRÓXIMO DÍA, UN POCO MÁS CLARO</p>
+      <h1 id="titulo">¿Qué tiempo hace<br>en tu próxima parada?</h1>
+      <p>Encuentra una ciudad y descubre su temperatura, el viento y lo que viene en los próximos días.</p>
+    </section>
+    <section id="buscador" class="buscador" aria-label="Buscar una ciudad">
+      <form id="formulario" novalidate>
+        <label for="ciudad">¿Dónde quieres mirar?</label>
+        <div class="fila-busqueda">
+          <input type="search" id="ciudad" name="ciudad" value="Monterrey" placeholder="Escribe una ciudad" maxlength="100" autocomplete="off" required>
+          <button type="submit" class="principal">Buscar ciudad <span aria-hidden="true">→</span></button>
+        </div>
+      </form>
+      <div class="sugerencias"><span>Prueba con</span><button type="button" data-ciudad="Monterrey">Monterrey</button><button type="button" data-ciudad="Madrid">Madrid</button><button type="button" data-ciudad="Buenos Aires">Buenos Aires</button></div>
+      <div id="estado" class="estado" role="status" aria-live="polite"></div>
+      <button id="reintentar" type="button" class="secundario" hidden>Volver a intentar</button>
+      <div id="ubicaciones" class="ubicaciones" aria-label="Ciudades encontradas"></div>
+    </section>
+    <section id="clima" aria-label="Condiciones y pronóstico" aria-busy="false"></section>
+    <p class="aclaracion">Las condiciones se calculan mediante modelos meteorológicos. La fecha y hora mostradas corresponden a la ciudad seleccionada.</p>
+  </main>
+  <footer class="contenedor pie">
+    <p>Actividad 4 · Miniaplicación web</p>
+    <p>Datos de <a href="https://open-meteo.com/">Open-Meteo</a> · Ubicaciones de <a href="https://www.geonames.org/">GeoNames</a> · <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></p>
+  </footer>
+</body>
+</html>

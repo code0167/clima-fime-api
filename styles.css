@@ -1,0 +1,68 @@
+:root { color-scheme: light; --tinta: #163b3d; --muted: #49686a; --papel: #f5f5ee; --linea: #cad8ce; --verde: #155b4f; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--papel); color: var(--tinta); font-family: "Segoe UI", Arial, sans-serif; line-height: 1.5; }
+a { color: inherit; text-underline-offset: 3px; }
+button,input { font: inherit; }
+button { cursor: pointer; }
+button:focus-visible,a:focus-visible,input:focus-visible { outline: 3px solid #ac4e00; outline-offset: 4px; }
+[hidden] { display: none !important; }
+.contenedor { max-width: 1160px; margin-inline: auto; padding-inline: 32px; }
+.cabecera { display: flex; justify-content: space-between; align-items: center; min-height: 100px; border-bottom: 1px solid var(--linea); gap: 20px; }
+.marca { display: flex; gap: 12px; align-items: center; text-decoration: none; font-size: 20px; font-weight: 750; letter-spacing: -.5px; }
+.logo { background: #e7edb7; border-radius: 50%; font-size: 28px; width: 44px; height: 44px; text-align: center; }
+.insignia { font-size: 11px; letter-spacing: 1.7px; font-weight: 700; }
+.introduccion { padding: 48px 0 26px; }
+.etiqueta { font-size: 11px; font-weight: 750; letter-spacing: 2px; margin: 0 0 12px; }
+h1 { font-size: clamp(32px,4.3vw,54px); line-height: 1.08; letter-spacing: -2px; margin: 0 0 18px; font-weight: 650; }
+.introduccion>p:last-child { max-width: 590px; color: var(--muted); font-size: 16px; }
+.buscador { background: #fff; border: 1px solid var(--linea); border-radius: 18px; padding: 24px; margin-bottom: 24px; }
+label { display: block; font-size: 14px; font-weight: 700; margin-bottom: 9px; }
+.fila-busqueda { display: flex; gap: 10px; }
+input { width: 100%; min-width: 0; padding: 13px 16px; border: 1px solid #90a9a4; border-radius: 9px; background: #fbfcf8; color: var(--tinta); }
+.principal { border: 0; background: var(--verde); color: white; border-radius: 9px; padding: 13px 22px; white-space: nowrap; font-weight: 650; }
+.principal:hover { background: #0c4239; }
+.principal span { margin-left: 14px; }
+.sugerencias { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 14px; font-size: 12px; color: var(--muted); }
+.sugerencias button { background: #f1f4ec; border: 1px solid #d5dfd4; color: var(--tinta); border-radius: 30px; padding: 5px 12px; }
+.estado { margin-top: 16px; color: var(--muted); font-size: 14px; }
+.estado[data-tipo="error"] { color: #9b2920; font-weight: 600; }
+.estado[data-tipo="carga"]::before { content: ""; display: inline-block; width: 11px; height: 11px; border: 2px solid #a6c1b6; border-top-color: var(--verde); border-radius: 50%; margin-right: 8px; animation: girar .7s linear infinite; }
+@keyframes girar { to { transform: rotate(360deg); } }
+.secundario { background: white; color: var(--verde); border: 1px solid var(--verde); border-radius: 7px; padding: 8px 14px; margin-top: 12px; }
+.ubicaciones { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.ubicacion { max-width: 100%; text-align: left; padding: 9px 12px; border: 1px solid #bdcec5; border-radius: 8px; background: white; color: var(--tinta); font-size: 12px; }
+.ubicacion[aria-pressed="true"] { background: #e7edb7; border-color: #728145; }
+.actual { display: grid; grid-template-columns: 1.15fr 1fr; background: #173f40; color: #f5f8ee; border-radius: 20px; overflow: hidden; }
+.actual-principal { padding: 30px 32px; position: relative; }
+.actual .etiqueta { color: #d5e8b4; }
+.actual h2 { margin: 0; font-size: 27px; letter-spacing: -.6px; }
+.lugar { color: #c7ddda; margin: 4px 0 22px; font-size: 13px; }
+.temperatura { font-size: 76px; letter-spacing: -4px; font-weight: 600; line-height: 1; margin: 0; }
+.temperatura span { font-size: 28px; vertical-align: top; letter-spacing: 0; }
+.descripcion { margin: 12px 0 0; font-size: 17px; }
+.icono-grande { position: absolute; right: 34px; bottom: 35px; font-size: 70px; color: #e8edbb; line-height: 1; }
+.datos { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: #3b6261; margin: 26px 26px 26px 0; border: 1px solid #3b6261; border-radius: 12px; overflow: hidden; }
+.dato { background: #234c4c; padding: 22px; }
+.dato dt { font-size: 12px; color: #c7ddda; }
+.dato dd { margin: 8px 0 0; font-size: 23px; font-weight: 600; }
+.hora { color: var(--muted); font-size: 12px; margin: 12px 4px 30px; }
+.titulo-pronostico { display: flex; justify-content: space-between; gap: 16px; align-items: baseline; margin-bottom: 15px; }
+.titulo-pronostico h2 { margin: 0; font-size: 23px; letter-spacing: -.5px; }
+.titulo-pronostico p { margin: 0; font-size: 12px; color: var(--muted); }
+.dias { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 12px; }
+.dia { background: #fff; border: 1px solid var(--linea); border-radius: 13px; padding: 20px; }
+.dia h3 { margin: 0; font-size: 15px; text-transform: capitalize; }
+.dia:first-child { background: #ebefcf; border-color: #c0ca9b; }
+.fecha { font-size: 12px; color: var(--muted); margin: 2px 0 12px; }
+.icono { font-size: 33px; display: block; margin-bottom: 8px; }
+.dia .condicion { font-size: 12px; min-height: 36px; margin: 5px 0 14px; }
+.rango { font-size: 21px; margin: 0; font-weight: 700; }
+.rango span { font-size: 15px; color: var(--muted); font-weight: 400; margin-left: 5px; }
+.lluvia { font-size: 11px; margin-bottom: 0; color: var(--muted); }
+.aclaracion { color: var(--muted); font-size: 12px; margin: 24px 0 40px; }
+.pie { display: flex; justify-content: space-between; gap: 20px; border-top: 1px solid var(--linea); padding-top: 14px; padding-bottom: 22px; font-size: 11px; color: var(--muted); }
+.saltar { position: absolute; top: -80px; left: 10px; background: white; padding: 12px; z-index: 10; }
+.saltar:focus { top: 10px; }
+@media(max-width:850px) { .dias { grid-template-columns: repeat(3,minmax(0,1fr)); } .actual { grid-template-columns: 1fr; } .datos { margin: 0 24px 24px; } .actual-principal { padding-bottom: 28px; } }
+@media(max-width:550px) { .contenedor { padding-inline: 18px; } .cabecera { min-height: 82px; } .insignia { max-width: 95px; font-size: 9px; text-align: right; } .marca { font-size: 16px; gap: 7px; } .logo { width: 36px; height: 36px; font-size: 24px; } .introduccion { padding-top: 30px; } h1 { letter-spacing: -1px; } .buscador { padding: 18px; } .fila-busqueda { flex-direction: column; } .dias { grid-template-columns: repeat(2,minmax(0,1fr)); } .dia { padding: 15px; } .titulo-pronostico { flex-direction: column; gap: 4px; } .dato { padding: 16px; } .dato dd { font-size: 20px; } .actual-principal { padding: 25px; } .icono-grande { right: 28px; font-size: 52px; } .pie { flex-direction: column; gap: 0; } }
+@media(prefers-reduced-motion:reduce) { .estado[data-tipo="carga"]::before { animation: none; } }
